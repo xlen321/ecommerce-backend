@@ -139,8 +139,6 @@ mvn test
 | Variable      | Description       |
 | ------------- | ----------------- |
 | `DB_URI`      | JDBC database URL |
-| `DB_USER`     | Database user     |
-| `DB_PASSWORD` | Database password |
 
 `.env` is included in `.gitignore`.
 
