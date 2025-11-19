@@ -64,7 +64,7 @@ ecom/
 ### 1️⃣ Clone Repository
 
 ```
-git clone https://github.com/<your-username>/econnerce-backend.git
+git clone https://github.com/xlen321/econnerce-backend.git
 cd econnerce-backend
 ```
 
@@ -94,18 +94,23 @@ http://localhost:8085
 
 ### 🔹 Public Endpoints
 
-| Method | Endpoint                        | Description                  |
-| ------ | ------------------------------- | ---------------------------- |
-| GET    | `/api/public/categories`        | Fetch all categories         |
-| GET    | `/api/public/categories/active` | Fetch only active categories |
+| Method | Endpoint                                    | Description                          |
+| ------ | ------------------------------------------- | ------------------------------------ |
+| GET    | `/api/public/categories`                    | Fetch all categories                 |
+| GET    | `/api/public/categories?active=true`        | Fetch only active categories         |
+| GET    | `/api/public/categories?active=false`       | Fetch only inactive categories       |
+| GET    | `/api/public/categories/search?q={keyword}` | Search by name, slug, or description |
 
 ### 🔹 Admin Endpoints
 
-| Method | Endpoint                     | Description          |
-| ------ | ---------------------------- | -------------------- |
-| POST   | `/api/admin/category`        | Create a category    |
-| PUT    | `/api/admin/categories/{id}` | Update category      |
-| DELETE | `/api/admin/categories/{id}` | Soft delete category |
+| Method | Endpoint                                               | Description                  |
+| ------ | ------------------------------------------------------ | ---------------------------- |
+| POST   | `/api/admin/category`                                  | Create a category            |
+| PUT    | `/api/admin/categories/{id}`                           | Update category              |
+| PATCH  | `/api/admin/categories/{id}/active?value={true/false}` | Activate/Deactivate category |
+| PATCH  | `/api/admin/categories/{id}/metadata`                  | Update metadata (JSON)       |
+| PATCH  | `/api/admin/categories/{id}/position?value=4`          | Update category position     |
+| DELETE | `/api/admin/categories/{id}`                           | Soft delete category         |
 
 ---
 
