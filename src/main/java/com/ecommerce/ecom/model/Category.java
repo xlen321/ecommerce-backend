@@ -1,7 +1,9 @@
 package com.ecommerce.ecom.model;
 
 import java.time.OffsetDateTime;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -77,7 +79,7 @@ public class Category {
         @Builder.Default
         @JdbcTypeCode(SqlTypes.JSON)
         @Column(columnDefinition = "jsonb", nullable = false)
-        private String metadata = "{}";
+        private Map<String, Object> metadata = new HashMap<>();
 
         // Audit fields
         @CreationTimestamp

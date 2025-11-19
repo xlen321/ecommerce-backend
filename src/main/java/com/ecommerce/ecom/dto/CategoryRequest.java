@@ -1,5 +1,7 @@
 package com.ecommerce.ecom.dto;
 
+import java.util.Map;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
@@ -25,7 +27,7 @@ public class CategoryRequest {
     private Integer position;
 
     // optional JSON stored as string
-    private String metadata;
+    private Map<String, Object> metadata;
 
     // optional parent id
     private String parentId;

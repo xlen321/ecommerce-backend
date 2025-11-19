@@ -1,6 +1,7 @@
 package com.ecommerce.ecom.dto;
 
 import java.time.OffsetDateTime;
+import java.util.Map;
 
 import lombok.Data;
 
@@ -13,7 +14,7 @@ public class CategoryResponse {
     private String description;
     private boolean active;
     private Integer position;
-    private String metadata;
+    private Map<String, Object> metadata;
     private String parentId;
     private OffsetDateTime createdAt;
     private OffsetDateTime updatedAt;

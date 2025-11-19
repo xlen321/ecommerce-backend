@@ -1,6 +1,7 @@
 package com.ecommerce.ecom.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.lang.NonNull;
 
@@ -23,7 +24,7 @@ public interface CategoryService {
 
     CategoryResponse setActive(@NonNull String id, boolean active);
 
-    CategoryResponse updateMetadata(@NonNull String id, String metadatJson);
+    CategoryResponse updateMetadata(@NonNull String id, Map<String, Object> metadata);
 
     List<CategoryResponse> getChildren(@NonNull String parentId);
 

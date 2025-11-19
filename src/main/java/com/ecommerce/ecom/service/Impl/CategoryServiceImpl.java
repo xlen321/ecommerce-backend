@@ -2,6 +2,7 @@ package com.ecommerce.ecom.service.Impl;
 
 import java.time.OffsetDateTime;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.lang.NonNull;
@@ -122,9 +123,11 @@ public class CategoryServiceImpl implements CategoryService {
 
     // update metadata
     @Override
-    public CategoryResponse updateMetadata(@NonNull String id, String metadata) {
+    @Transactional
+    public CategoryResponse updateMetadata(@NonNull String id, Map<String, Object> metadata) {
         Category existing = categoryRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Category not found" + id));
+                .orElseThrow(() -> new EntityNotFoundException("Category not found: " + id));
+
         existing.setMetadata(metadata);
         return mapper.toResponse(categoryRepository.save(existing));
     }
