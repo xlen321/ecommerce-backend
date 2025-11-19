@@ -64,7 +64,7 @@ ecom/
 ### 1️⃣ Clone Repository
 
 ```
-git clone https://github.com/<your-username>/econnerce-backend.git
+git clone https://github.com/xlen321/econnerce-backend.git
 cd econnerce-backend
 ```
 
