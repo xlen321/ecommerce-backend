@@ -28,6 +28,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -51,6 +52,7 @@ public class Category {
         private String id;
 
         @Column(nullable = false)
+        @NotBlank
         private String name;
 
         @ManyToOne(fetch = FetchType.LAZY)
@@ -62,9 +64,11 @@ public class Category {
         private Set<Category> children = new HashSet<>();
 
         @Column(nullable = false)
+        @NotBlank
         private String slug;
 
         @Column(nullable = false, columnDefinition = "text")
+        @NotBlank
         private String description;
 
         @Builder.Default
