@@ -36,6 +36,10 @@ public class CategoryServiceImpl implements CategoryService {
             parent = categoryRepository.findById(parentId)
                     .orElseThrow(() -> new EntityNotFoundException("Parent not found: " + parentId));
         }
+        String slug = request.getSlug();
+        if(categoryRepository.findByParentIdAndSlug(parentId, slug) != null) {
+            throw new DataIntegrityViolationException("Category already exists");
+        }
         Category toSaveCategory = mapper.toEntity(request); // convert dto to entity
         toSaveCategory.setParent(parent); // attach parent permanenetly
         categoryRepository.findByParentIdAndSlug(parentId, toSaveCategory.getSlug()).ifPresent(exixting -> {

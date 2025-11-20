@@ -18,6 +18,7 @@ public class CategoryRequest {
     private String slug;
 
     // optional descriptive text
+    @NotBlank
     private String description;
 
     // optional - default true
